@@ -98,7 +98,7 @@ end
 
 function [label_image, label_array] = four_connected(binary_image, image_size)
     label = 1;
-    label_array = linspace(0,0,image_size(1)/2*image_size(2));
+    label_array = linspace(0,0,image_size(1)/2*image_size(2)+1);
     label_image = zeros(image_size);
     for i=1:image_size(1)
         for j=1:image_size(2)
@@ -147,7 +147,7 @@ end
 function [label_image, new_label_array] = shoew_image(label_image, label_array, image_size)
     new_label_array = label_array;
     label = 0;
-    for i = 1:image_size(1)/2*image_size(2)
+    for i = 1:image_size(1)/2*image_size(2)+1
         if(label_array(i) == i)
             label = label + 1;
             new_label_array(i) = label;
